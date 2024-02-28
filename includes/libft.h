@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 14:27:02 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/23 14:27:02 by hmorand          ###   ########.ch       */
+/*   Created: 2024/02/27 09:49:32 by hmorand           #+#    #+#             */
+/*   Updated: 2024/02/27 09:49:32 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char 	*join_argv(char **argv, int argc);
 
 /* ************************************************************************** */
 /*                                                                            */
@@ -113,6 +114,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 int		strarr_len(char **arr);
 char	**arr_insert(char **arr, int pos, char *elem);
+char	**strarr_pop(char **arr, int index);
 
 /* ************************************************************************** */
 /*                                                                            */
