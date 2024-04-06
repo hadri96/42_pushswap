@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 17:04:26 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 17:07:42 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 18:10:31 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 18:10:31 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,17 @@ void	pushswap(t_stack **a, t_stack **b)
 	int		i;
 
 	i = 0;
+	ra(a);
+	ra(a);
 	pb(b, a);
 	pb(b, a);
-	while (i < 5)
+	while (3 < stack_len(*a))
 	{
 		index_opt = optimal_cost(*a, *b);
 		insert_i(a, b, index_opt);
 		i++;
 	}
+	sort_3(a);
 }
 
 int	main(int argc, char *argv[])
@@ -51,12 +54,8 @@ int	main(int argc, char *argv[])
 	if (a)
 	{
 		b = NULL;
+		print_stack(a, "Stack a");
 		pushswap(&a, &b);
-		print_stacks(a, b);
-		rr(&a, &b);
-		print_stacks(a, b);
-		ft_printf("Stack a: %d\nStack b: %d\n", stack_len(a), stack_len(b));
-		stack_push(&a, &b);
 		print_stacks(a, b);
 		ft_printf("Stack a: %d\nStack b: %d\n", stack_len(a), stack_len(b));
 		exit(1);
@@ -66,5 +65,4 @@ int	main(int argc, char *argv[])
 		write(1, "Error", 5);
 		exit(1);
 	}
-
 }

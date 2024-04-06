@@ -6,7 +6,7 @@
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 17:09:23 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 17:12:49 by hmorand          ###   ########.ch       */
+/*   Updated: 2024/04/06 17:43:11 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	stack_clear(t_stack **stack, int len)
 
 void	stack_delfirst(t_stack **stack, int len)
 {
-	t_stack	*temp;
 	t_stack	*temp_next;
 	t_stack	*temp_prev;
 
@@ -84,7 +83,6 @@ void	stack_delfirst(t_stack **stack, int len)
 		stack_clear(stack, 1);
 		return ;
 	}
-	temp = *stack;
 	temp_next = (*stack)->next;
 	temp_prev = (*stack)->prev;
 	temp_next->prev = temp_prev;

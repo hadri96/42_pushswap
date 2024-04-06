@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 16:05:29 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 16:05:29 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 18:09:53 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 18:09:53 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,29 @@ void	insert_i(t_stack **a, t_stack **b, int opt_ind)
 	else if (mini == ins_pos + len_a - opt_ind)
 		move_b_up_a_down(len_a - opt_ind, ins_pos, a, b);
 	pb(b, a);
+}
+
+void	sort_3(t_stack **a)
+{
+	int	min;
+	int	max;
+
+	min = stack_min(*a);
+	max = stack_max(*a);
+	if ((*a)->prev->x == min && (*a)->next->x == max)
+		rra(a);
+	else if ((*a)->prev->x == max && (*a)->next->x == min)
+		sa(a);
+	else if ((*a)->x == min && (*a)->next->x == max)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if ((*a)->x == max && (*a)->next->x == min)
+		ra(a);
+	else if ((*a)->x == max && (*a)->prev->x == min)
+	{
+		sa(a);
+		rra(a);
+	}
 }
