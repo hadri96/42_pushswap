@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:14:10 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 12:15:15 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 17:09:23 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 17:12:49 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	(*stack)->prev = new;
 }
 
+void	stack_add_front(t_stack **stack, t_stack *new)
+{
+	if (!stack || !new)
+		return ;
+	if (*stack == NULL)
+	{
+		*stack = new;
+		return ;
+	}
+	new->next = *stack;
+	new->prev = (*stack)->prev;
+	(*stack)->prev->next = new;
+	(*stack)->prev = new;
+	*stack = new;
+}
+
 void	stack_clear(t_stack **stack, int len)
 {
 	t_stack	*current;
@@ -55,30 +71,23 @@ void	stack_clear(t_stack **stack, int len)
 	current = NULL;
 }
 
-t_stack	*atos(char **numbers)
+void	stack_delfirst(t_stack **stack, int len)
 {
-	t_stack	*stack;
-	t_stack	*new;
-	int		i;
+	t_stack	*temp;
+	t_stack	*temp_next;
+	t_stack	*temp_prev;
 
-	i = 0;
-	if (contains_doubles(numbers))
+	if (len == 0 || *stack == NULL)
+		return ;
+	if (len == 1)
 	{
-		free_strarr(numbers);
-		return (NULL);
+		stack_clear(stack, 1);
+		return ;
 	}
-	stack = 0;
-	while (numbers[i])
-	{
-		if (!ft_is_digit(numbers[i]))
-		{
-			free_strarr(numbers);
-			stack_clear(&stack, stack_len(stack));
-			return (NULL);
-		}
-		new = stack_new(ft_atoi(numbers[i++]));
-		stack_add_back(&stack, new);
-	}
-	free_strarr(numbers);
-	return (stack);
+	temp = *stack;
+	temp_next = (*stack)->next;
+	temp_prev = (*stack)->prev;
+	temp_next->prev = temp_prev;
+	temp_prev->next = temp_next;
+	(*stack) = temp_next;
 }

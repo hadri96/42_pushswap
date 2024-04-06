@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:25:31 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 11:25:31 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 15:21:13 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 15:21:13 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ int	stack_len(t_stack *stack)
 	i = 0;
 	start = stack->x;
 	stack = stack->next;
-	while (stack->x != start || i++ == 0)
+	while (stack->x != start)
+	{
 		stack = stack->next;
-	return (i);
+		i++;
+	}
+	return (i + 1);
 }
 
 int	stack_max(t_stack *stack)
@@ -67,4 +70,37 @@ int	stack_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+int	insert_pos(t_stack *s, int num)
+{
+	int		i;
+	int		start;
+	int		min;
+	int		max;
+
+	i = 0;
+	min = stack_min(s);
+	max = stack_max(s);
+	start = s->x;
+	while ((i == 0 || start != s->x))
+	{
+		if ((s->x == max && num > max) || \
+			(s->prev->x == min && num < min))
+			return (i);
+		else if (s->x == min && num < min)
+			return (i + 1);
+		else if (s->x < num && s->prev->x > num)
+			return (i);
+		s = s->next;
+		i++;
+	}
+	return (i);
+}
+
+int	value_at(t_stack *stack, int index)
+{
+	while (index--)
+		stack = stack->next;
+	return (stack->x);
 }

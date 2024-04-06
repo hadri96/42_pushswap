@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:33:55 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 12:33:55 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 13:13:20 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 13:13:20 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	ft_strcmp(char *s1, char *s2)
 	return (true);
 }
 
-bool ft_is_digit(char *str)
+bool	ft_is_digit(char *str)
 {
 	if (*str == '-')
 		str++;

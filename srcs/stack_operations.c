@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:29:41 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 11:29:45 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 16:53:45 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 16:53:45 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,23 @@ void	stack_reverse_rotate(t_stack **stack)
 
 void	stack_rotate(t_stack **stack)
 {
+	if (*stack == NULL || (*stack)->next == *stack)
+		return ;
 	*stack = (*stack)->next;
 }
 
 void	stack_push(t_stack **stack_from, t_stack **stack_to)
 {
-	t_stack	*temp_prev;
-	t_stack	*temp_next;
-	t_stack	*temp;
+	int	n;
 
 	if (!stack_from || !(*stack_from))
 		return ;
-	temp = *stack_from;
-	temp_next = (*stack_from)->next;
-	temp_prev = (*stack_from)->prev;
-	temp_next->prev = temp_prev;
-	temp_prev->next = temp_next;
-	temp->next = temp;
-	temp->prev = temp;
-	(*stack_from) = temp_next;
-	if (!(*stack_to))
+	n = (*stack_from)->x;
+	stack_delfirst(stack_from, stack_len(*stack_from));
+	if (*stack_to == NULL)
 	{
-		*stack_to = temp;
+		*stack_to = stack_new(n);
 		return ;
 	}
-	stack_add_back(stack_to, temp);
-	stack_reverse_rotate(stack_to);
+	stack_add_front(stack_to, stack_new(n));
 }

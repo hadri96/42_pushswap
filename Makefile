@@ -13,6 +13,10 @@ SRCS		=	srcs/display.c \
 				srcs/stack_info.c \
 				srcs/stack_operations.c \
 				srcs/stack_utils.c \
+				srcs/atos.c \
+				srcs/optimal.c \
+				srcs/move.c \
+				srcs/max.c \
 				srcs/pushswap.c
 
 OBJS		=	$(SRCS:%.c=%.o)

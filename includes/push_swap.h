@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:18:08 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 12:19:04 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/06 16:52:27 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/06 16:52:27 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <stdarg.h>
 # include "libft.h"
 
 typedef struct s_stack
@@ -30,7 +31,9 @@ typedef struct s_stack
 
 t_stack	*stack_new(int x);
 void	stack_add_back(t_stack **stack, t_stack *new);
+void	stack_add_front(t_stack **stack, t_stack *new);
 void	stack_clear(t_stack **stack, int len);
+void	stack_delfirst(t_stack **stack, int len);
 t_stack	*atos(char **numbers);
 
 // stack info
@@ -38,6 +41,8 @@ t_stack	*atos(char **numbers);
 int		stack_len(t_stack *stack);
 int		stack_max(t_stack *stack);
 int		stack_min(t_stack *stack);
+int		insert_pos(t_stack *stack, int num);
+int		value_at(t_stack *stack, int index);
 
 // stack operations
 
@@ -69,6 +74,22 @@ void	ra(t_stack **stack_a);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
 
+// max-min functions
+
+int		max(int count, ...);
+int		min(int count, ...);
+
+// optimal finding functions
+
+int		optimal_cost_n(int pos, int ins_pos, t_stack *a, t_stack *b);
+int		optimal_cost(t_stack *a, t_stack *b);
+void	insert_i(t_stack **a, t_stack **b, int opt_ind);
+// inserting help
+
+void	move_both_up(int _ra, int _rb, t_stack **a, t_stack **b);
+void	move_both_down(int _rra, int _rrb, t_stack **a, t_stack **b);
+void	move_a_up_b_down(int _ra, int _rrb, t_stack **a, t_stack **b);
+void	move_b_up_a_down(int _rra, int _rb, t_stack **a, t_stack **b);
 // display utils
 
 void	print_stack(t_stack *stack, char *stack_name);
