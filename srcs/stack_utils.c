@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 12:56:18 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 12:57:17 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 15:16:22 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 15:16:22 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 		return ;
 	}
 	new->next = *stack;
-	new->prev = (*stack)->prev->prev;
+	new->prev = (*stack)->prev;
 	(*stack)->prev->next = new;
 	(*stack)->prev = new;
 }

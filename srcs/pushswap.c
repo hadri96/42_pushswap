@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 14:01:34 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 14:01:34 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 15:22:21 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 15:22:21 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char *argv[])
 		b = NULL;
 		print_stack(a, "Stack a");
 		pushswap(&a, &b);
-		//print_stack(a, "Result");
+		print_stack(a, "Result");
 		//ft_printf("Stack a: %d\nStack b: %d\n", stack_len(a), stack_len(b));
 		exit(1);
 	}

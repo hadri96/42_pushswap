@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 12:58:29 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 12:58:59 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 15:18:25 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 15:21:43 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,18 +106,15 @@ void	sort_3(t_stack **a)
 
 void	merge(t_stack **a, t_stack **b)
 {
-	int	min_a;
-
-	min_a = stack_min(*a);
-	while (stack_len(*b) > 1)
+	while (stack_len(*b) > 0)
 	{
-		if ((*a)->prev->x > ((*b)->x) && ((*b)->x) > min_a)
+		if ((*b)->x > stack_max(*a) || (*b)->x < (*a)->x)
+		{
+			pa(a, b);
+			continue ;
+		}
+		while (!((*b)->x < (*a)->x && (*b)->x > (*a)->prev->x))
 			rra(a);
-		else
-			pa(a,b);
+		pa(a, b);
 	}
-	if ((*b)->x < (*a)->prev->x)
-		rra(a);
-	pa(a, b);
-	print_stack(*a, "Result");
 }
