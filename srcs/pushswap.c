@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 15:22:21 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 15:22:21 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 15:30:41 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 15:30:41 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	pushswap(t_stack **a, t_stack **b)
 	int		i;
 
 	i = 0;
-	ra(a);
-	ra(a);
 	pb(b, a);
 	pb(b, a);
 	print_stacks(*a, *b);
