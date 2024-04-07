@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 16:53:45 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 16:53:45 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 11:14:03 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 11:14:03 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,33 @@ void	stack_push(t_stack **stack_from, t_stack **stack_to)
 		return ;
 	}
 	stack_add_front(stack_to, stack_new(n));
+}
+
+void	max_at_top(t_stack **b)
+{
+	int		i;
+	int		max;
+	t_stack	*current_r;
+	t_stack	*current;
+
+	max = stack_max(*b);
+	i = 0;
+	current = *b;
+	current_r = *b;
+	while (current->x != max && current_r->x)
+	{
+		current = current->next;
+		current_r = current_r->prev;
+		i++;
+	}
+	if (current->x == max)
+	{
+		while (i--)
+			rb(b);
+	}
+	else
+	{
+		while (i--)
+			rrb(b);
+	}
 }

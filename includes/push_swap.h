@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 18:10:14 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 18:10:17 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 11:05:08 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 11:05:27 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	stack_swap(t_stack **stack);
 void	stack_push(t_stack **stack_from, t_stack **stack_to);
 void	stack_reverse_rotate(t_stack **stack);
 void	stack_rotate(t_stack **stack);
+void	max_at_top(t_stack **b);
 
 // processing
 
@@ -85,6 +86,8 @@ int		optimal_cost_n(int pos, int ins_pos, t_stack *a, t_stack *b);
 int		optimal_cost(t_stack *a, t_stack *b);
 void	insert_i(t_stack **a, t_stack **b, int opt_ind);
 void	sort_3(t_stack **a);
+
+
 // inserting help
 
 void	move_both_up(int _ra, int _rb, t_stack **a, t_stack **b);

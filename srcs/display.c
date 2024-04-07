@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 12:17:47 by hmorand           #+#    #+#             */
-/*   Updated: 2024/02/26 12:17:54 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 11:14:42 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 11:14:42 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,4 @@ void	print_stacks(t_stack *stack_a, t_stack *stack_b)
 		else
 			ft_printf("       \n", stack_b->x);
 	}
-	ft_printf("----------------\n");
 }

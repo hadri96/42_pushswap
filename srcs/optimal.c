@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 18:09:53 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 18:09:53 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 11:07:17 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 11:07:17 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,8 @@ void	sort_3(t_stack **a)
 		rra(a);
 	}
 }
+
+/* void	merge(t_stack **a, t_stack **b)
+{
+
+} */
