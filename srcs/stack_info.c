@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 11:03:57 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 11:03:57 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 12:23:20 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 12:24:12 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ int	stack_len(t_stack *stack)
 	int	i;
 	int	start;
 
-	if (!stack)
+	if (stack == NULL)
 		return (0);
+	if (stack->next->x == stack->x)
+		return (1);
 	i = 0;
 	start = stack->x;
 	stack = stack->next;

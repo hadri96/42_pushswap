@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 11:07:17 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 11:07:17 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 12:58:29 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 12:58:59 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	insert_i(t_stack **a, t_stack **b, int opt_ind)
 		move_a_up_b_down(opt_ind, len_b - ins_pos, a, b);
 	else if (mini == ins_pos + len_a - opt_ind)
 		move_b_up_a_down(len_a - opt_ind, ins_pos, a, b);
+	print_stacks(*a, *b);
 	pb(b, a);
 }
 
@@ -103,7 +104,20 @@ void	sort_3(t_stack **a)
 	}
 }
 
-/* void	merge(t_stack **a, t_stack **b)
+void	merge(t_stack **a, t_stack **b)
 {
+	int	min_a;
 
-} */
+	min_a = stack_min(*a);
+	while (stack_len(*b) > 1)
+	{
+		if ((*a)->prev->x > ((*b)->x) && ((*b)->x) > min_a)
+			rra(a);
+		else
+			pa(a,b);
+	}
+	if ((*b)->x < (*a)->prev->x)
+		rra(a);
+	pa(a, b);
+	print_stack(*a, "Result");
+}

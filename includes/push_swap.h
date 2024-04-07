@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 11:05:08 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 11:05:27 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/07 11:40:24 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/07 11:40:24 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int		optimal_cost_n(int pos, int ins_pos, t_stack *a, t_stack *b);
 int		optimal_cost(t_stack *a, t_stack *b);
 void	insert_i(t_stack **a, t_stack **b, int opt_ind);
 void	sort_3(t_stack **a);
+void	merge(t_stack **a, t_stack **b);
 
 
 // inserting help
