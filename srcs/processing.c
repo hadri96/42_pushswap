@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 10:12:40 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/26 10:14:54 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 10:51:45 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 10:52:14 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,13 @@ bool	ft_strcmp(char *s1, char *s2)
 
 bool	ft_is_valid_digit(char *str)
 {
+	if (ft_strlen(str) == 10 && ft_strncmp(str, "2147483647", 10) > 0)
+		return (false);
 	if (*str == '-')
 		str++;
-	if (ft_strlen(str) == 0 || (ft_strlen(str) >= 10 && ft_strncmp(str, "2147483648", 10) < 0))
+	if ((ft_strlen(str) == 0) || \
+		(ft_strlen(str) == 10 && ft_strncmp(str, "2147483648", 10) > 0) || \
+		(ft_strlen(str) > 10))
 		return (false);
 	while (*str)
 	{

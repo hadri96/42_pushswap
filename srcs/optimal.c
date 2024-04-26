@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 09:40:58 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/26 09:40:58 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 11:19:43 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 11:19:49 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,12 @@ void	sort_3(t_stack **a)
 	}
 }
 
-
 void	merge(t_stack **a, t_stack **b)
 {
 	int	max_a;
 	int	min_a;
 	int	global_max;
 
-	//print_stacks(*a, *b);
 	max_a = stack_max(*a);
 	min_a = stack_min(*a);
 	global_max = max(2, max_a, stack_max(*b));

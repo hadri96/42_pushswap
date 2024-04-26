@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 09:40:30 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/26 09:40:30 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 11:19:26 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 11:19:30 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	pushswap(t_stack **a, t_stack **b)
 
 	pb(b, a);
 	pb(b, a);
-	//print_stacks(*a, *b);
 	while (3 < stack_len(*a))
 	{
 		index_opt = optimal_cost(*a, *b);
@@ -60,7 +59,7 @@ int	main(int argc, char *argv[])
 	if (argc == 1)
 		exit(1);
 	a = atos(numbers_a);
-	if (a != NULL || stack_len(a) > 0)
+	if (a != NULL && stack_len(a) > 0)
 	{
 		b = NULL;
 		if (is_sorted(a))
@@ -72,6 +71,5 @@ int	main(int argc, char *argv[])
 	}
 	else
 		write(2, "Error\n", 6);
-	//print_stack(a, "Stack a");
 	exit(1);
 }
