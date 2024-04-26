@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 12:23:20 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 12:24:12 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/22 18:30:21 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/22 18:30:21 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	stack_len(t_stack *stack)
 {

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 15:18:25 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 15:21:43 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 09:40:58 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 09:40:58 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 int	optimal_cost_n(int pos, int ins_pos, t_stack *a, t_stack *b)
 {
@@ -75,7 +75,6 @@ void	insert_i(t_stack **a, t_stack **b, int opt_ind)
 		move_a_up_b_down(opt_ind, len_b - ins_pos, a, b);
 	else if (mini == ins_pos + len_a - opt_ind)
 		move_b_up_a_down(len_a - opt_ind, ins_pos, a, b);
-	print_stacks(*a, *b);
 	pb(b, a);
 }
 
@@ -104,17 +103,29 @@ void	sort_3(t_stack **a)
 	}
 }
 
+
 void	merge(t_stack **a, t_stack **b)
 {
-	while (stack_len(*b) > 0)
-	{
-		if ((*b)->x > stack_max(*a) || (*b)->x < (*a)->x)
-		{
-			pa(a, b);
-			continue ;
-		}
-		while (!((*b)->x < (*a)->x && (*b)->x > (*a)->prev->x))
-			rra(a);
+	int	max_a;
+	int	min_a;
+	int	global_max;
+
+	//print_stacks(*a, *b);
+	max_a = stack_max(*a);
+	min_a = stack_min(*a);
+	global_max = max(2, max_a, stack_max(*b));
+	while (stack_len(*b) > 0 && (*b)->x > max_a)
 		pa(a, b);
+	rra(a);
+	while (stack_len(*b) > 0 && (*b)->x > min_a)
+	{
+		if ((*b)->x < (*a)->prev->x && (*a)->prev->x < global_max)
+			rra(a);
+		else
+			pa(a, b);
 	}
+	while ((*a)->prev->x != global_max)
+		rra(a);
+	while (stack_len(*b) > 0)
+		pa(a, b);
 }

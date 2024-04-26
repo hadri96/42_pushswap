@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 14:42:03 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/05 14:42:30 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 10:05:53 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 10:06:03 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack	*atos(char **numbers)
 	stack = 0;
 	while (numbers[i])
 	{
-		if (!ft_is_digit(numbers[i]))
+		if (ft_is_valid_digit(numbers[i]) == false)
 		{
 			free_strarr(numbers);
 			stack_clear(&stack, stack_len(stack));

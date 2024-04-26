@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/06 13:13:20 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/06 13:13:20 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 10:12:40 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 10:14:54 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 bool	ft_strcmp(char *s1, char *s2)
 {
@@ -26,10 +26,12 @@ bool	ft_strcmp(char *s1, char *s2)
 	return (true);
 }
 
-bool	ft_is_digit(char *str)
+bool	ft_is_valid_digit(char *str)
 {
 	if (*str == '-')
 		str++;
+	if (ft_strlen(str) == 0 || (ft_strlen(str) >= 10 && ft_strncmp(str, "2147483648", 10) < 0))
+		return (false);
 	while (*str)
 	{
 		if (*str < '0' || *str > '9')

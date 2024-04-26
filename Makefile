@@ -1,4 +1,4 @@
-NAME		=	pushswap
+NAME		=	push_swap
 LIBFT		=	libft/
 LIBFT_A		=	$(addprefix $(LIBFT), libft.a)
 
@@ -25,7 +25,7 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS) $(LIBFT_A)
 				@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT) -lft -lm -o $(NAME)
-				@echo "Linked into executable \033[0;32mpushswap\033[0m."
+				@echo "Linked into executable \033[0;32mpush_swap\033[0m."
 
 $(LIBFT_A):
 				@$(MAKE) bonus -s -C $(LIBFT)

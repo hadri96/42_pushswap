@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 11:40:24 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 11:40:24 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 10:10:47 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 10:10:47 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	max_at_top(t_stack **b);
 
 bool	ft_strcmp(char *s1, char *s2);
 bool	contains_doubles(char **numbers);
-bool	ft_is_digit(char *str);
+bool	ft_is_valid_digit(char *str);
 char	*join_strarr(char **argv, int argc);
 
 // stack a operations

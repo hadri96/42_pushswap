@@ -5,39 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmorand <hmorand@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/07 15:30:41 by hmorand           #+#    #+#             */
-/*   Updated: 2024/04/07 15:30:41 by hmorand          ###   ########.ch       */
+/*   Created: 2024/04/26 09:40:30 by hmorand           #+#    #+#             */
+/*   Updated: 2024/04/26 09:40:30 by hmorand          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-/* int	compute_cost(t_stack *stack_a, t_stack *stack_b)
+bool	is_sorted(t_stack *a)
 {
-	int	i;
+	int	start;
 
-	i = 0;
-	return (i);
-} */
+	if (stack_len(a) == 1)
+		return (true);
+	start = a->x;
+	a = a->next;
+	if (start > a->x)
+		return (false);
+	while (a->x != start && a->next->x > a->x)
+			a = a->next;
+	if (a->next->x == start)
+		return (true);
+	return (false);
+}
 
 void	pushswap(t_stack **a, t_stack **b)
 {
 	int		index_opt;
-	int		i;
 
-	i = 0;
 	pb(b, a);
 	pb(b, a);
-	print_stacks(*a, *b);
+	//print_stacks(*a, *b);
 	while (3 < stack_len(*a))
 	{
 		index_opt = optimal_cost(*a, *b);
 		insert_i(a, b, index_opt);
-		i++;
 	}
-	print_stacks(*a, *b);
 	sort_3(a);
 	max_at_top(b);
+	if (is_sorted(*b))
+		rrb(b);
 	merge(a, b);
 }
 
@@ -49,22 +56,22 @@ int	main(int argc, char *argv[])
 	t_stack	*b;
 
 	string = join_strarr(argv, argc);
-	ft_printf("%s\n",string);
 	numbers_a = ft_split(string, ' ');
-	gfree(string);
+	if (argc == 1)
+		exit(1);
 	a = atos(numbers_a);
-	if (a)
+	if (a != NULL || stack_len(a) > 0)
 	{
 		b = NULL;
-		print_stack(a, "Stack a");
-		pushswap(&a, &b);
-		print_stack(a, "Result");
-		//ft_printf("Stack a: %d\nStack b: %d\n", stack_len(a), stack_len(b));
-		exit(1);
+		if (is_sorted(a))
+			exit(1);
+		else if (stack_len(a) == 3)
+			sort_3(&a);
+		else
+			pushswap(&a, &b);
 	}
 	else
-	{
-		write(1, "Error", 5);
-		exit(1);
-	}
+		write(2, "Error\n", 6);
+	//print_stack(a, "Stack a");
+	exit(1);
 }
